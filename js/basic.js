@@ -27,6 +27,7 @@ const age=21
 
 console.log("My name is " + name + " and I am " + age + " years old."); //string concatenation
 console.log(`My name is ${name} and I am ${age} years old.`); //template literals we can use "${}" to insert variables inside strings
- //npn install nodemon -g //to install nodemon globally
+ //npm install nodemon -g //to install nodemon globally
  // npm i -g nodemon
  // install postman for API testing
+// we use mongoDb atlas for online database and mongodb compass for local database

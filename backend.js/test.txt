@@ -1,7 +1,0 @@
-// backend flow
- 
- schema  // plan to store data in database( name,password,age)
- model    //  where to store data in table
- controller // logics
- routes    //
- index.js
