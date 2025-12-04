@@ -117,3 +117,11 @@ const byy=ayy.filter((name,index) => {
     return cyy; // it will return true or false
 })
 console.log(byy); // it will return ["ram", "shyam", "hari"] because all names contain "a"
+
+
+// const number=[1,2,3];
+//     const num= number.filter((value,index)=>{
+//         const phone= value.includes("EventCounts")
+//         return phone;
+//     })
+//     console.log(num);

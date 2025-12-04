@@ -1,5 +1,6 @@
 import express from 'express';
 import { connectdatabase } from './config/connectMongo.js';
+import { userrouter } from './router/user.route.js';
 
 const app = express();//() means function call
 
@@ -18,3 +19,10 @@ app.get('/user', (req, res) => { //get method is used to read data from the serv
     res.get('Hello World!');     
 });
 
+app.use("/user",userrouter)
+
+app.use("/name",userrouter)
+
+app.use("/user" ,userrouter)
+
+//npm.js is documentation for study

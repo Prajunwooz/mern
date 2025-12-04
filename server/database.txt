@@ -1,5 +1,5 @@
 CRUD
 c=create //we use .post method
 r=read // we use .get method
-u=upgrade // we use .patch or .port
+u=upgrade // we use .patch or .put
 d=delete  //  we use .delete

@@ -13,3 +13,4 @@ console.log(person.age)
 // it is syntactically similar to JSON (JavaScript Object Notation) but not the same
 //JSON is a data format that is used to store and exchange data
 //JSON keys must be strings and values must be valid JSON data types (string, number, boolean, array, object, null)
+// js is sychronous in nature

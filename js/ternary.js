@@ -27,7 +27,7 @@
    )
    
    const base={
-    emai:"@gmail.com",
+    email:"@gmail.com",
     code:"123"
    }
    const aakash="aakash";
