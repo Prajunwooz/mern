@@ -73,7 +73,7 @@
 // // console.log(reverseyc); // it will return "date-cherry-banana-apple"
 // // const tt=ft.split(" - "); //to split a string into an array at each "-"
 // // console.log(tt); // it will return ["apple", "banana", "cherry", "date"]
-// // const revversetc=tt.reverse(); //to reverse the array
+// // const revversetc=t t.reverse(); //to reverse the array
 // // console.log(revversetc); // it will return ["date", "cherry", "banana", "apple"]
 // // console.log(`The fruits are ${fruits} and the reversed fruits are ${revversetc}`);
 

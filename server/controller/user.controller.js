@@ -1,6 +1,7 @@
 import { userrouter } from "../router/user.route.js"
 import { User } from "../schema/user.schema.js"
 import bcrypt from   "bcryptjs"
+import jwt from "jsonwebtoken"
 
 
 
@@ -144,7 +145,7 @@ data:result
 export const createUserController = async(req, res) => {
 try {
 
-    let data=req.body        
+    let data=req.body          //npm install bcryptjs
     let hashpassword=await bcrypt.hash(data.password,10   ) //we need to import bcrypt and npm ibycryptjs
     console.log(hashpassword)
     data={
@@ -204,7 +205,7 @@ catch (error){
     try{
         ///const email=res.body
         const result=await User.findOne({email:req.body.email })
-     //now this result save all data of user
+     //now this result save all database
        if(!result)
         res.status(201).json({
             message:"invalid email"})
@@ -216,9 +217,21 @@ catch (error){
             message:"invalid password"
         })
     }
-    res.status(201).json({
+let infoObj={     //npm install jsonswebtoken it has sign and verify method
+id:result._id,
+email:result.email
+}
+let secretkey="secret"
+
+const token=jwt.sign(infoObj,secretkey,{expiresIn:"1h"}) //
+console.log(token)
+
+
+
+       res.status(201).json({
         message:"login sucessfully",
-        result:result
+        result:result,
+        token:token
     })
     }
     catch(error){
@@ -230,3 +243,6 @@ catch (error){
     }
 
 }
+
+
+

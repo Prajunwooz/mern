@@ -3,3 +3,13 @@ c=create //we use .post method
 r=read // we use .get method
 u=upgrade // we use .patch or .put
 d=delete  //  we use .delete
+
+JWT-jsonwetoken     
+payload-infoObj
+secret_key- secret_key
+expire-time={expireIn:}
+npm install bcryptjs                 // JWT debuger
+//dot env install
+npm i dotedv folder banauni .env
+install path auto complete extension
+nodemailer 

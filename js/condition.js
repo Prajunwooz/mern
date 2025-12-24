@@ -32,7 +32,7 @@
 const data={
     username:"admin", //we have to put comma between each key-value in object
     password:"12345",
-    isLoggedIn:false
+    isLoggedIn:true
 }
 const inputUsername="admin";  // we havee to put == for const data type but in var and let we can put = only
 const inputPassword="12345";

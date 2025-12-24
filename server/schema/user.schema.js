@@ -19,7 +19,37 @@ const userschema=new mongoose.Schema({ //we working in database so we use mongoo
     },
         gender:{     
         type:String,    
-        required:false,}
+        required:false,},
+
+        // userInFor:{
+        //     fullName:{
+        //         type:"string",
+        //         required:[true,"fullName must be given"]
+        //     },
+        //     email:{
+        //    type:"string",
+        //    required:[true,"email must be given"]
+        //     },
+        //     address:{
+        //         type:"string",
+        //         required:[true,"must given"]
+        //     }
+
+        // }
+
+        //jwt act as role and athenticiation
+        isverified:{
+            type:Boolean,
+            required:[true],
+            default:fixed //
+        },
+
+        role:{
+            type:"string",
+            enum:["admin","user"],  //we use enum if there is many option (procesing .cancelled)
+            default:"user"
+
+        }
 });
 
 export const User=mongoose.model("User",userschema); //it creates a model named User
