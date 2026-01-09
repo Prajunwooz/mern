@@ -1,0 +1,10 @@
+frontend request le request pathauchha
+middleware=function()=>backend
+next();
+backend le resoind pathauchha
+
+
+
+
+
+RBAC=ROLE BASED ACCESS CONTROL

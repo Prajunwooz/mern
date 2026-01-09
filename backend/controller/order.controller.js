@@ -27,7 +27,7 @@ import { Product } from "../schema/product.schema.js"
 
 export const createOrderController = async (req,res) => {
     try {
-        let data = req.body 
+        let data = req.body  //CRUD operation
         
         let orderQuantity = data.quantity // orderQuantity = 10 dara.quantity reurn in order quantity
         const id = data.productId 

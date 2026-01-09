@@ -183,4 +183,22 @@ export const forgetpasswordController=async(req,res)=>{
         })
     }
 }
-co
+export const updateUserController=async(req,res)=>{
+    try{
+        const data = req.body
+        delete data.password; // which delete password if user wamt to update other detail except password
+        const id =  req.id//req.params.id
+
+        const result =await Usermodel.findByIdAndUpdate(id , data, {new:true})
+        res.status(200).json({
+            message:"user updated sucessfully",
+            result:result
+        })
+    }   
+    catch(error){
+        res.status(400).json({
+            message:"problem in updating user", 
+            error:error.message
+        })
+    }}
+    
