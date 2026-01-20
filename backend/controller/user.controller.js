@@ -14,7 +14,7 @@ export const userController=async(req,res)=>{
 
         const result= await Usermodel.create(data)
         const token=await generateToken({
-            payload:{
+            payload:{            
             email:result.email,
             id:result._id
         },
@@ -22,7 +22,7 @@ export const userController=async(req,res)=>{
         console.log(token)
         sendMail({
             email:result.email,
-        subject:"thanks for registration",// we add /verify route to verify user
+        subject:"thanks for registration i am prajun",// we add /verify route to verify user
         html:`<h1> hello ${result.username},</h1>
         </br>
         <p> thanks for registering with us </p>
@@ -37,7 +37,9 @@ export const userController=async(req,res)=>{
         // weuse result instead of data because mail is send after user creaate successfully
 // agrument send value to parameter to run the function
         res.status(201).json({
-            message:"sucessfully created"
+            message:"sucessfully created please verify your email",
+            result:result ,
+            token:token  
         })
 
 
@@ -188,7 +190,7 @@ export const updateUserController=async(req,res)=>{
         const data = req.body
         delete data.password; // which delete password if user wamt to update other detail except password
         const id =  req.id//req.params.id
-
+console.log(id)
         const result =await Usermodel.findByIdAndUpdate(id , data, {new:true})
         res.status(200).json({
             message:"user updated sucessfully",

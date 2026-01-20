@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
     },
     productDetails:{
         type: String,
-        required: [true, "Product Details is required"]
+        required: [false, "Product Details is required"]
     },
     brand:{
         type:String,
@@ -27,7 +27,7 @@ const productSchema = new mongoose.Schema({
     },
     productImages:{
         type: [String],
-        required: true  
+        required: false  
     }
 
 })

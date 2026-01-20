@@ -1,0 +1,30 @@
+ http://localhost:5173/
+ day 1, 
+ / git clone garera local ma code lina sakincha git profile bata lyayera ani tespachi npm install garera sabai package haru install garni ani npm run dev garera local ma run garni
+//npm create vite@latest to create frontend
+// ctrl + space to see suggestions and imports
+// every code  run in app.jsx in react and mail.jsx ma home component run huncha
+command to set up the frontend project:
+  -> npm create vite@latest 
+  -> project name = frontend
+  -> framework choose = react 
+  -> varient = javascript 
+  done. 
+    cd frontend
+    npm install
+    npm run dev
+
+
+
+    index.css = clear 
+    App.css = clear 
+    App.jsx = clear 
+      rafce   r= react
+              a = Arrow 
+              f= function 
+              c= componential 
+              e = export 
+
+
+return 
+components always write in capitial letter pieces of code aalways starts with capipital
