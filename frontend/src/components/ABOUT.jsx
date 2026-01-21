@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ABOUT = () => {
+const ABOUT = () => { 
+  console.log("ABOUT component rendered");
   return (
     <div>
       hello from about us

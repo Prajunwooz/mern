@@ -28,3 +28,6 @@ command to set up the frontend project:
 
 return 
 components always write in capitial letter pieces of code aalways starts with capipital
+search npm js
+ npm i react-router-dom to install react package
+ // import BrowserRouter in main.jsx to enable routing in cover it to app
