@@ -1,12 +1,13 @@
 import React from 'react'
-
-const ABOUT = () => { 
+// we use props to pass data from one component to another component
+const About = ( props) => { 
   console.log("ABOUT component rendered");
   return (
     <div>
-      hello from about us
+      {props.productname} is sold for Rs {props.price} in our store.
+      
     </div>
   )
 }
 
-export default ABOUT
+export default About
