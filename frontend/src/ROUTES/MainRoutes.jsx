@@ -4,6 +4,9 @@ import NavigationBar from '../components/NavigationBar';
 import Contact from '../components/contact';
 import About from '../components/ABOUT';
 import Store from '../compenents/store';
+import UseState from '../components/UseState';
+import UseStateImage from '../components/UseStateImage';
+import UseStatePw from '../components/UseStatePw';
 
 const MainRoutes = () => {
   return (
@@ -17,6 +20,9 @@ const MainRoutes = () => {
         {/* we are passing props from MainRoutes to ABOUT component */}
         <Route path="/contact" element={<Contact></Contact> } > </Route>
         <Route path="/store" element ={<Store></Store>}></Route>
+        <Route path="/usestate" element ={<UseState></UseState>}></Route>
+        <Route path="/usestateimage" element ={<UseStateImage></UseStateImage>}></Route>
+        <Route path="/usestatepw" element ={<UseStatePw></UseStatePw>}></Route>
         
       </Routes>
     </div>

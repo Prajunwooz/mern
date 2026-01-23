@@ -18,6 +18,9 @@ const NavigationBar = () => {
         <NavLink to = {"/about"}> About</NavLink>
         <NavLink to = {"/contact"}> Contact</NavLink>
         <NavLink to = {"/store"}> Store</NavLink>
+        <NavLink to = {"/usestate"}> UseState</NavLink>
+        <NavLink to = {"/usestateimage"}> UseStateImage</NavLink>
+        <NavLink to = {"/usestatepw"}> UseStatePW</NavLink>
     </div>
     </div>
   )
