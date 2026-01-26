@@ -7,6 +7,7 @@ import Store from '../compenents/store';
 import UseState from '../components/UseState';
 import UseStateImage from '../components/UseStateImage';
 import UseStatePw from '../components/UseStatePw';
+import UseEffect from '../components/UseEffect';
 
 const MainRoutes = () => {
   return (
@@ -23,7 +24,8 @@ const MainRoutes = () => {
         <Route path="/usestate" element ={<UseState></UseState>}></Route>
         <Route path="/usestateimage" element ={<UseStateImage></UseStateImage>}></Route>
         <Route path="/usestatepw" element ={<UseStatePw></UseStatePw>}></Route>
-        
+        <Route path="/useeffect" element ={<UseEffect></UseEffect>}></Route>
+
       </Routes>
     </div>
   )

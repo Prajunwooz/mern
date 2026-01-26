@@ -21,6 +21,7 @@ const NavigationBar = () => {
         <NavLink to = {"/usestate"}> UseState</NavLink>
         <NavLink to = {"/usestateimage"}> UseStateImage</NavLink>
         <NavLink to = {"/usestatepw"}> UseStatePW</NavLink>
+        <NavLink to = {"/useeffect"}> UseEffect</NavLink>
     </div>
     </div>
   )
