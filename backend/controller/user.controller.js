@@ -46,7 +46,7 @@ export const userController=async(req,res)=>{
     }
     catch (error){
 res.status(400).json({
-    message:"problem in created",
+    message:"problem in creating user",
     error:error.message
 })
     }
@@ -105,18 +105,22 @@ export const verifyuserController=async(req,res)=>{  //this is send in email but
         }   
         res.status(200).json({
             message:"login sucessfully", 
-            token:token
+            data:email,
+            token:token,
+            
         })
     }
     catch(error){
         res.status(400).json({
-            message:"problem in login",}) } }
+            message:"problem in login",
+            error:error.message
+        }) } }
 
 
 
 
 
-export const forgetpasswordController=async(req,res)=>{
+export const  forgetpasswordController=async(req,res)=>{
     try{
         let iemail=req.body.email 
         const isvalidemail=await Usermodel.findOne({email:iemail})//wheather email is valid or not
@@ -133,16 +137,19 @@ export const forgetpasswordController=async(req,res)=>{
             },
             expiresIn:"30days" //15m means 15 minutes expire time
         }) 
-        
+        console.log(token)
         
         
         const result=await sendMail({
+            // earlier link was http://localhost:8080/user/resetpassword?token=${token} but we change port bcs frontend ma reset password gareko ho
+            // <NavLink to = {"/user/resetpassword"}> ResetPassword</NavLink> we dont put token in frontend route
             email:isvalidemail.email,
             subject:"forget password", 
             html:`<h1> hello ,</h1>
             </br>
             <p> click on the below link to reset your password </p> 
-            <a href=http://localhost:8080/user/resetpassword?token=${token}> 
+            <a href=http://localhost:5173/user/resetpassword?token=${token}> 
+        
             <button> reset your password</button>
             </a>`
         })
@@ -153,7 +160,7 @@ export const forgetpasswordController=async(req,res)=>{
     }
     catch(error){
         res.status(400).json({
-            message:"problem in forget password",
+            message:"problem in forget password session",
             error:error.message
         })
     }

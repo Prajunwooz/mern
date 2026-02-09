@@ -8,11 +8,12 @@ let transportor =nodemailer.createTransport({ //.createTransport is method of no
     secure:false,
     
     auth:{ //auth means authentication that verify from google 
-        user:SMTP_EMAIL,
+        user:SMTP_EMAIL||"puriprajun@gmail.com",
 
-        pass:SMTP_PASSWORD //app password from google account
+        pass:SMTP_PASSWORD||"nexvqbhpccmaeqqq" //app password from google account
     },
     });
+    
     // export const sendMail=async()=>{ //.sendMail is method of transportor used to send mail
         
     //         const result= await transportor.sendMail(

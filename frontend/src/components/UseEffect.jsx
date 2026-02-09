@@ -1,8 +1,9 @@
-import React, {  useEffect, useState } from 'react'
+import React, {  useEffect, useState,  } from 'react'
+import InputType from './InputType';
 
 const UseEffect = () => {
-    //usestate render 1st time but useeffect render 2nd time
-    const [Data, SetData] = useState("");
+    //usestate render 2st time but useeffect render 1nd time
+     const [Data, SetData] = useState("");
     const HandleClick = () => {
         const ayy= "data updating"
         console.log(ayy);
@@ -15,6 +16,8 @@ const UseEffect = () => {
   return (
     <div>
       <button onClick={HandleClick}> Click Me </button>
+      <br/>
+      <button onClick={<InputType></InputType>}></button>
     </div>
   )
 }

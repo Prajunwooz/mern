@@ -1,6 +1,9 @@
+
 import { SECRET_KEY } from "../config/env.js"
+console.log("SECRET_KEY in jwt.js",SECRET_KEY)
 //dotenv.config({path:"../.env"});
 import jwt from "jsonwebtoken";
+import path from "path";
 
 // export const generateToken = async()=>{
 //     let infroObject={
@@ -21,15 +24,19 @@ import jwt from "jsonwebtoken";
 // }
 // verifyToken();
 export const generateToken = async({payload,expiresIn})=>{ 
+
+    const SECRET_KEY = "hello123"
    
     const result =await jwt.sign(payload,SECRET_KEY,{
         expiresIn:expiresIn
     })
+    console.log("SECRET_KEY",SECRET_KEY)  
 return result
 }
 // ~
 
  export const verifyToken=async(token)=>{
+    const SECRET_KEY = "hello123"
     const result=await jwt.verify(token,SECRET_KEY)
     return result
 }

@@ -23,6 +23,6 @@ const UseStateImage = () => {
         
     </div>
   )
-}
+} 
 
 export default UseStateImage
