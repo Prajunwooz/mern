@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import "../../src/App.css"
-import Store from '../compenents/store'
+import "../App.css"
+
 
 const NavigationBar = () => {
   const [LogOut,SetLogOUt]=useState(false)
@@ -18,9 +18,11 @@ const NavigationBar = () => {
    
   
   return (
-    <div className ="Header">
-      <h1 >
-        <img src="https://graphicsfamily.com/wp-content/uploads/edd/2021/08/Free-Creative-Abstract-Logo-Design-Template-scaled.jpg" className='logo' width={"120px"} height={"100px"} />
+    <div className='navbar'>
+      <h1 className='logo' >
+        <img src="https://www.creativefabrica.com/wp-content/uploads/2021/11/17/letter-S-logo-design-vector-template-Graphics-20313550-1.jpg" className='logo' width={"120px"} height={"100px"} display ="center" 
+        padding="center"/>
+          
         </h1>
         {/* logo</h1> */}
 <div className="navlinks">     
@@ -31,12 +33,12 @@ const NavigationBar = () => {
       <NavLink to = {"/"}> Home</NavLink>   
         <NavLink to = {"/about"}> About</NavLink>
         <NavLink to = {"/contact"}> Contact</NavLink>
-        <NavLink to = {"/store"}> Store</NavLink>
         <NavLink to = {"/usestate"}> UseState</NavLink>
         <NavLink to = {"/usestateimage"}> UseStateImage</NavLink>
         <NavLink to = {"/usestatepw"}> UseStatePW</NavLink>
         <NavLink to = {"/useeffect"}> UseEffect</NavLink>
         <NavLink to = {"/InputType"}> InputType</NavLink>
+        <NavLink to = {"/store"}> Store</NavLink>
         {/* <NavLink to = {"/register"}> Register</NavLink>
         <NavLink to = {"/login"}> Login</NavLink> */}
         <NavLink to = {"/forgotpassword"}> ForgetPassword</NavLink>
@@ -44,7 +46,7 @@ const NavigationBar = () => {
         {/* <NavLink to = {"/Dashboard"}> Dashboard</NavLink> */}
         {/* <NavLink to = {"/updateProfile"}> UpdateProfile</NavLink> */}
         {Token ?(<><NavLink to = {"/Dashboard"}> Dashboard</NavLink>
-        <button onClick={HandleResponse}></button>  </>)
+        <button onClick={HandleResponse}>log out</button>  </>)
         : (<><NavLink to = {"/register"}> Register</NavLink>
         <NavLink to = {"/login"}> Login</NavLink></>
       )}

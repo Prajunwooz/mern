@@ -10,6 +10,7 @@ const App = () => {
 
       <Home></Home>
       <ABOUT></ABOUT> */}
+      
       <MainRoutes></MainRoutes>
     </div>
   )

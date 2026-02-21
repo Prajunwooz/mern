@@ -14,7 +14,9 @@ const Drashboard = () => {
     <div>
 <button onClick={()=>{ Navigate("/dashboard/UpdateProfile")}}>Update Profile</button>
    {/* here update profile is the chind route */}
-      
+<button onClick={()=>{ Navigate("/dashboard/ProductCreate")}}>Create Product</button>
+<button onClick={()=>{ Navigate("/dashboard/UpdateProduct")}}>Update Product</button>
+<button onClick={()=>{ Navigate("/dashboard/GetProduct")}}>Get Product</button>
     </div>
   )
 }

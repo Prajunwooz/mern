@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>   
         {/* import browser route from browser router */}
-    <App /> 
+        <App />
     </BrowserRouter> 
   </StrictMode>,
 )

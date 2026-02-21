@@ -18,7 +18,8 @@ const Register = () => {
             username: Username,
             email: Email,
             password: Password
-        }
+        },
+        
     })
     console.log(Response.data);
     SetUsername('');    

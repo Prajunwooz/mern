@@ -10,7 +10,7 @@ let transportor =nodemailer.createTransport({ //.createTransport is method of no
     auth:{ //auth means authentication that verify from google 
         user:SMTP_EMAIL||"puriprajun@gmail.com",
 
-        pass:SMTP_PASSWORD||"nexvqbhpccmaeqqq" //app password from google account
+        pass:SMTP_PASSWORD||"nexv qbhp  ccma eqqq" //app password from google account
     },
     });
     

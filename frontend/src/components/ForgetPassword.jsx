@@ -41,7 +41,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/user/forgot-password",
+        "http://localhost:8080/user/forgotpassword",
         {
           email: email,
         },

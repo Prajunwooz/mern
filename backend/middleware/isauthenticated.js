@@ -24,7 +24,7 @@ export const isauthenticated = async (req, res, next) => {
     try {
         const token=req.headers.authorization
         console.log(token)
-        const tokenValue=token.split(" ")[1]; //here terminal get token from header with bearer in string so we have to split it to get only token it works index1 only in array 
+        const tokenValue = token?.split(" ")[1]; //here terminal get token from header with bearer in string so we have to split it to get only token it works index1 only in array 
         if (!tokenValue) {
             return res.status(401).json({
                 message: "token is missing"
@@ -47,4 +47,4 @@ export const isauthenticated = async (req, res, next) => {
             error: error.message
         })
     }
-k}
+}

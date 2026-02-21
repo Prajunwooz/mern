@@ -55,9 +55,11 @@ res.status(400).json({
 export const verifyuserController=async(req,res)=>{  //this is send in email button link
     try{  
         let token=req.query.token //we have to write http://localhost:8080/user/verify?token=..... in the browser to verify user
+      console.log(token)
         let verify=await verifyToken(token) //vefify token means
         console.log(verify)
         let id=verify.id 
+        console.log(id)
         const result=await Usermodel.findByIdAndUpdate(id,{isVarified:true}, {new:true})    
         console.log(verify)
         res.status(200).json({
@@ -79,7 +81,7 @@ export const verifyuserController=async(req,res)=>{  //this is send in email but
        ///console.log(email.email) this brought only email from document
         if(!email){
             return res.status(400).json({
-                message:"invalid email"
+                message:"invalid crenditials"
             })
         }
         if(!email.isVarified){ //isVarified is from user.schema.js ,eamil brings isVarified value from database

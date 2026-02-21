@@ -3,7 +3,6 @@ import{ Routes,  Route, Outlet, useNavigate } from 'react-router-dom'
 import NavigationBar from '../components/NavigationBar';
 import Contact from '../components/contact';
 import About from '../components/ABOUT';
-import Store from '../compenents/store';
 import UseState from '../components/UseState';
 import UseStateImage from '../components/UseStateImage';
 import UseStatePw from '../components/UseStatePw';
@@ -13,11 +12,15 @@ import InputType from '../components/InputType';
 import Register from '../components/Register';
 import Login from '../components/login'
 import Drashboard from '../components/Drashboard';  
-
 import ResetPassword from '../components/ResetPassword';
-import ForgetPassword from '../components/ForgetPassword';
-import UpadeProfiile from '../components/UpadeProfiile';
 import ForgotPassword from '../components/ForgetPassword';
+import UpdateProfile from '../components/UpdateProfile';
+import ProductCreate from '../components/Productcreate';
+import GetProduct from '../components/GetProduct';
+import UpdateProduct from '../components/updateProduct';
+import Store from '../components/store';
+import Home from '../components/home';
+
 const MainRoutes = () => {
   const Navigate=useNavigate()
   //localstorage store data permanently but session storage store data till tab is open
@@ -28,32 +31,37 @@ const MainRoutes = () => {
       <NavigationBar></NavigationBar>
       <Routes> 
 
-        <Route  path="/" element={ <div> Home Page from homepage </div> } ></Route>
+        {/* <Route  path="/" element={<div>this is home page</div> } ></Route> */}
+        <Route  path="/" element={<Home></Home> } ></Route>
         <Route path ="/about" element={ <About productname="laptop" price="50000"></About>}  > </Route>
         {/* we are passing props from MainRoutes to ABOUT component */}
         <Route path="/contact" element ={<Outlet></Outlet>}>
           <Route index element ={<Contact></Contact>}></Route>
           <Route path="name" element ={<InputType></InputType>}></Route>
         </Route>
-        <Route path="/store" element ={<Store></Store>}></Route>
+        <Route path="*" element ={<DynamicRoute></DynamicRoute>}></Route>
         <Route path="/usestate" element ={<UseState></UseState>}></Route>
         <Route path="/usestateimage" element ={<UseStateImage></UseStateImage>}></Route>
         <Route path="/usestatepw" element ={<UseStatePw></UseStatePw>}></Route>
         <Route path="/useeffect/:id" element ={<UseEffect></UseEffect>}></Route>
         <Route path="/InputType" element ={<InputType></InputType>}></Route>
+        <Route path="/store" element ={<Store></Store>}></Route>
         <Route path="/register" element ={<Register></Register>}></Route>
         <Route path="/login"  element ={<Login></Login>}></Route>
-        <Route path="/dashboard" element ={<Drashboard></Drashboard>}></Route>  
+        {/* <Route path="/dashboard" element ={<Drashboard></Drashboard>}></Route>   */}
         <Route path="/forgotpassword" element ={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="/user/resetpassword" element ={<ResetPassword></ResetPassword>}></Route>
-        <Route path="/Dashboard/UpdateProfile" element ={<UpadeProfiile></UpadeProfiile>}></Route>
-        {/* qwery add garnu pardainna reset password ma link ma aako jastoo */}
-        <Route path="/Dashboard" element={<Outlet></Outlet>}> 
-        <Route index element ={<Drashboard></Drashboard>}></Route>
-        <Route path="updateProfile" element ={<UpadeProfiile></UpadeProfiile>}></Route>
-        <Route path ="*" element ={<DynamicRoute></DynamicRoute>}></Route>
+                {/* qwery add garnu pardainna reset password ma link ma aako jastoo */}
+        {/* <Route path="/Dashboard/UpdateProfile" element ={<UpdateProfile></UpdateProfile>}></Route> */}
+                  <Route path="/dashboard" element={<Outlet />}>
+            <Route index element={<Drashboard />}></Route>
+            <Route path="UpdateProfile" element={<UpdateProfile />}></Route>
+            <Route path="ProductCreate" element={<ProductCreate />}></Route>
+            <Route path="UpdateProduct/:id" element={<UpdateProduct/>}></Route>  
+            <Route path="GetProduct" element={<GetProduct />}></Route>
+          </Route>
+
         
-         </Route>
       </Routes>
     </div>
   )

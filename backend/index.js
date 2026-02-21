@@ -12,8 +12,7 @@ const app = express()
 app.use(express.json())
 app.use(express.static("./public"));  //public vitra k k cha sav lai browse ma herna milni banaunu just locallhost:8080/copy.jpg lekhera
 app.use(cors("http://localhost:5173")) //frontend ko url halne
-
-
+//cors error bhaneko backend ra frontend connet chainna 
 connectDB()
 app.listen(8080, () => {
     console.log(`Server is running on port 8080`)
