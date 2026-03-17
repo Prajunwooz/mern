@@ -34,6 +34,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import "../App.css";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -46,14 +47,14 @@ const ForgotPassword = () => {
           email: email,
         },
       );
-
+alert("Password reset link sent to your email");
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
     }
   };
   return (
-    <div>
+    <div className="forgotpassword">
       <form onSubmit={handleForgotPassword}>
         <input
           type="text"
@@ -62,9 +63,9 @@ const ForgotPassword = () => {
             setEmail(e.target.value);
           }}
           required
-          placeholder="enter your email"
+          placeholder="eg:puriprajun77@gmail.comm"
         />
-        <button type="submit">send reset link</button>
+        <button type="submit">Reset buttom</button>
       </form>
     </div>
   );

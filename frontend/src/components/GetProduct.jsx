@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../App.css"
+import "../App.css";
 import baseUrl from "../config/env";
 const MyProducts = () => {
   const [products, setProducts] = useState([]);
@@ -26,7 +26,7 @@ console.log(baseUrl)
   }, []);
 
   const handleClick = productId => {
-    navigate(`/dashboard/UpdateProduct/${productId}`);
+    navigate(`/dashboard/UpdateProduct/${productId}`);//this navigate to update product page and we pass productId in url to identify which product we want to update and in update product page we will get that id from url and use it to fetch that product details and show in form for update
   };
 
   const handleDelete = async productId => {
@@ -51,7 +51,7 @@ console.log(baseUrl)
   };
 
   return (
-    <div className="store-container">
+    <div className="get-product">
       <h1 className="page-title">Our Collection</h1>
 
       {products.length === 0 ? (

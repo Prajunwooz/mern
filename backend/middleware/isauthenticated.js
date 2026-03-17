@@ -33,10 +33,12 @@ export const isauthenticated = async (req, res, next) => {
         const verify= await verifyToken(tokenValue) //vefify token means
         if (!verify) {
             return res.status(401).json({
-                message: "unauthenticated user"
+                message: "unauthenticated user",
+                error: error.message
             })
         } 
         const  id=verify.id
+        console.log(id)
         req.id=verify.id// when we write res in mdiddleware then we can access it in controller also      
         //verify token logic here
         req.token=tokenValue; // we are setting token in req object to use it in isauthorized middleware

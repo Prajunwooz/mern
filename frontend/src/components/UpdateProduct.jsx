@@ -9,17 +9,18 @@ import "../App.css";
 import baseUrl from "../config/env";
 
 const UpdateProduct = () => {
-  const { id } = useParams();
+  const { id } = useParams(); //id comes from url and we use it to identify which product we want to update and then we will fetch that product details from database and show it in the form for update
   console.log(id);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
     console.log(token)
+    console.log("yo chai hamro token ho hai ta", token)
   const [products, setProducts] = useState({ //products comes from database and setProducts is used to set the data in products
-    productName: "",
+    productName: "",// 
     productDetails: "",
     price: "",
     quantity: "",
-    category: "",
+    category: "",//we put put usestate value as empty string because when we first load the page we want to show the empty form and when we get the data from database then we will set the data in products and show it in the form
     brand: "",
   });
   const [productImages, setProductImages] = useState(null);//productimages comes from database and setProductImages is used to set the data in productimages and we use it to store the image file that we get from dropzone
@@ -29,7 +30,7 @@ const UpdateProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`${baseUrl}/product/get/${id}`);
+        const res = await axios.get(`${baseUrl}/product/get/${id}`);//this api is used to get the product details from database and we pass the id in url to identify which product we want to get and then we will set the data in products and show it in the form for update
         const data = res.data.data; // Access the product data from the response
         console.log(data);
         if (data) {
@@ -41,6 +42,7 @@ const UpdateProduct = () => {
             category: data.category || "",
             brand: data.brand || "",
           });
+          console.log("yo chai hamro product details ho hai ta", data.quantity);
           setPreview(data.productImage);
         }
         setLoading(false);
@@ -86,20 +88,26 @@ const UpdateProduct = () => {
         imageUrl = uploadRes.data.url;
       }
 
-      const updatedData = await axios.patch(
-        `${baseUrl}/product/update/${id}`,
-        {
-          ...products,
-          productImages: imageUrl,
-        },
-        { headers: { Authorization: `Bearer ${token}` } },
-      );
+      const updatedData = {
+        productName: products.productName,
+        productDetails: products.productDetails,
+        price: products.price,
+        quantity: products.quantity,
+        category: products.category,
+        brand: products.brand,
+        productImage: imageUrl,
+      };
+      console.log("yo chai hamro updated data ho hai ta", updatedData);
+
+      await axios.patch(`${baseUrl}/product/update/${id}`, updatedData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       console.log(token)
       console.log("yo cai hamro updated data ho hai ta", updatedData);
 
       toast.success("Product updated successfully!");
       setTimeout(() => {
-        navigate("/dashboard/Getp");
+        navigate("/dashboard/GetProduct");
       }, 2000);
     } catch (error) {
       console.log(error.message);
@@ -111,9 +119,9 @@ const UpdateProduct = () => {
     return <div className="loading-screen">Loading Product Details...</div>;
 
   return (
-    <div className="update-product-wrapper">
+    <div className="update-product">
       <div className="form-container">
-        <h2 className="form-title">Update Product</h2>
+      <h2 className="form-title" style={{color:"white"}}>Update Product</h2>
 
         <form onSubmit={handleUpdate} className="update-form">
           <div className="form-group">

@@ -1,67 +1,181 @@
 
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import "../App.css";
 import baseUrl from "../config/env";
 
-const Store = () => {
-  const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
+const Order = () => {
+ const { id } = useParams();//id is not query so we use useParams hook to get id from url and then we can use it in order page to fetch that product details and show in order page and also use id for creating order in backend
+const [searchParams] = useSearchParams();
+const price = searchParams.get("price");//price is in query so we use useSearchParams hook to get price from url and then we can use it in order page for order summary and also for calculating total price based on quantity
+const numericPrice = Number(price);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}/product/getAll`);
+console.log(id, numericPrice);
 
-        setProducts(response.data.date || []);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchProduct();
-  }, []);
 
-  const handleClick = (productId, price) => {
-    navigate(`/order/${productId}/${price}`);
+  const Navigate = useNavigate();
+
+  const [quantity, setQuantity] = useState(1);
+  const actualPrice = Number(price) * quantity;
+
+  const [userInfo, setUserInfo] = useState({
+    fullName: "",
+    email: "",
+    address: "",
+    city: "",
+    phone: "",
+  });
+
+  const createOrder = async e => {
+    e.preventDefault();
+    try {
+      const orderData = await axios.post(`${baseUrl}/order/create/${id}`, {
+        productId: id,
+        quantity: quantity,
+        totalPrice: actualPrice,
+        userInfo: {
+          fullName: userInfo.fullName,
+          email: userInfo.email,
+          address: userInfo.address,
+          city: userInfo.city,
+          phone: userInfo.phone,
+        },
+      });
+
+      console.log(orderData);
+      alert("Order created successfully!");
+    } catch (error) {
+      console.log(error.message);
+      alert("Failed to place order.");
+    }
   };
 
   return (
-    <div className="store-container">
-      <h1 className="page-title">Our Collection</h1>
+    <div className="order">
+    <div className="order-wrapper">
+      <div className="order-card">
+        <h2 className="page-title">Secure Checkout</h2>
 
-      {products.length === 0 ? (
-        <p className="loading-text">Loading products...</p>
-      ) : (
-        <div className="product-grid">
-          {products.map((value, index) => (
-            <div key={index} className="product-card">
-              <div className="image-wrapper">
-                <img
-                  src={value.productImage}
-                  alt={value.productName}
-                  className="product-image"
+        <div className="order-content">
+          <div className="order-summary-section">
+            <h3 className="section-title">Order Summary</h3>
+            <div className="summary-card">
+              <div className="summary-row">
+                <span className="label">Product ID:</span>
+                <span className="value">{id}</span>
+              </div>
+              <div className="summary-row">
+                <span className="label">Unit Price:</span>
+                <span className="value">Rs. {price}</span>
+              </div>
+
+              <div className="summary-row input-row">
+                <label htmlFor="quantity" className="label">
+                  Quantity:
+                </label>
+                <input
+                  id="quantity"
+                  type="number"
+                  min="1"
+                  className="qty-input"
+                  value={quantity}
+                  onChange={e => setQuantity(Number(e.target.value))}
                 />
               </div>
-              <div className="product-content">
-                <h3 className="product-name">{value.productName}</h3>
-                <p className="product-details">{value.productDetails}</p>
-                <div className="price-action-row">
-                  <p className="product-price">Rs. {value.price}</p>
-                  <button
-                    className="buy-button"
-                    onClick={() => handleClick(value._id, value.price)}
-                  >
-                    Buy Now
-                  </button>
-                </div>
+
+              <div className="divider"></div>
+
+              <div className="summary-row total-row">
+                <span className="total-label">Total Amount:</span>
+                <span className="total-value">Rs. {actualPrice}</span>
               </div>
             </div>
-          ))}
+          </div>
+
+          <form onSubmit={createOrder} className="shipping-form-section">
+            <h3 className="section-title">Shipping Information</h3>
+
+            <div className="form-group">
+              <label htmlFor="fullName">Full Name</label>
+              <input
+                id="fullName"
+                type="text"
+                className="form-control"
+                required
+                value={userInfo.fullName}
+                onChange={e =>
+                  setUserInfo({ ...userInfo, fullName: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                type="email"
+                className="form-control"
+                required
+                value={userInfo.email}
+                onChange={e =>
+                  setUserInfo({ ...userInfo, email: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="form-row">
+              <div className="form-group half-width">
+                <label htmlFor="city">City</label>
+                <input
+                  id="city"
+                  type="text"
+                  className="form-control"
+                  required
+                  value={userInfo.city}
+                  onChange={e =>
+                    setUserInfo({ ...userInfo, city: e.target.value })
+                  }
+                />
+              </div>
+              <div className="form-group half-width">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  className="form-control"
+                  required
+                  value={userInfo.phone}
+                  onChange={e =>
+                    setUserInfo({ ...userInfo, phone: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="address">Delivery Address</label>
+              <textarea
+                id="address"
+                className="form-control textarea"
+                required
+                rows="2"
+                value={userInfo.address}
+                onChange={e =>
+                  setUserInfo({ ...userInfo, address: e.target.value })
+                }
+              />
+            </div>
+
+            <button type="submit" className="confirm-btn">
+              Confirm Order
+            </button>
+          </form>
         </div>
-      )}
+      </div>
+    </div>
     </div>
   );
 };
 
-export default Store;
+export default Order;

@@ -48,7 +48,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-
+import "../App.css";
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
 
@@ -75,7 +75,7 @@ const ResetPassword = () => {
     }
   };
   return (
-    <div>
+    <div className="resetpassword">
       <form onSubmit={handleResetPassword}>
         <input
           type="password"

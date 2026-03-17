@@ -22,6 +22,7 @@ const Register = () => {
         
     })
     console.log(Response.data);
+    alert("User successfully registered, please verify your email before login");
     SetUsername('');    
 SetEmail('');    
 SetPassword('');
@@ -39,7 +40,7 @@ SetPassword('');
 
         }
   return (
-    <div>
+    <div className='register'>
         <form onSubmit={HandleSubmit}>
             <h2>Register Here</h2>
             <label>Name:</label>
@@ -52,6 +53,7 @@ SetPassword('');
             <input type="password" onChange={(event) => SetPassword(event.target.value)} name="password" required />
             <br />
             <button type="submit" >Register</button>
+            <p className="note">Already have an account? <a href="/login">Login here</a></p>
         </form>
     </div>
   )

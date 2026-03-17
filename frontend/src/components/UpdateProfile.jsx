@@ -52,6 +52,7 @@
 
 import axios from "axios";
 import React, { useState } from "react";
+import "../App.css";
 
 const UpdateProfile = () => {
   const [email, setEmail] = useState("");
@@ -78,7 +79,8 @@ const UpdateProfile = () => {
           },
         },
       );
-
+      setEmail("");
+      setUserName("");
       setError(response.data.message);
 
       console.log(response.data);
@@ -88,7 +90,7 @@ const UpdateProfile = () => {
     }
   };
   return (
-    <div>
+    <div className="update-profile">
       <h1>Update Profile </h1>
       <form onSubmit={handleUpdateProfile}>
         <input

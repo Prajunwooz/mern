@@ -43,7 +43,7 @@ let transportor =nodemailer.createTransport({ //.createTransport is method of no
         
             const result= await transportor.sendMail(
                 {
-                from:"Prajun Puri < puriprajun@gmail.com>",
+                // from:"Prajun Puri < puriprajun@gmail.com>",
                 to:email,
                 subject:subject,
                 html:html,

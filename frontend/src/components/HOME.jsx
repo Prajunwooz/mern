@@ -1,65 +1,32 @@
 import React from "react";
 import "../App.css";
 
-const Home = () => {
+function HomePage() {
   return (
-    <div className="home">
+    <div className="homepage">
+      <header className="header">
+        <h1 className="name">live wear</h1>
+        <nav>
+          <lo-go img src=""></lo-go>
+          <ul>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
-      {/* HERO SECTION */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Shop the Latest Trends</h1>
-          <p>Discover premium products at unbeatable prices.</p>
-          <button className="primary-btn">Shop Now</button>
-        </div>
+      <section className="hero" style={{className:"img" ,backgroundImage: "url('https://img.pptvhd36.com/thumbor/2024/05/03/news-ff3ca5d.jpg')" }}>
+        <h2 style={{ color: "white", textShadow: "2px 2px 4px rgba(252, 16, 16, 0.5)"}}>Welcome to live wear </h2>
+        <p style={{textShadow:"red"}}>Your one-stop solution for awesome content.</p>
+        <button className="cta">Get Started</button>
       </section>
 
-      {/* CATEGORIES */}
-      <section className="categories">
-        <h2>Shop by Category</h2>
-        <div className="category-grid">
-          <div className="category-card">Men</div>
-          <div className="category-card">Women</div>
-          <div className="category-card">Electronics</div>
-          <div className="category-card">Accessories</div>
-        </div>
-      </section>
-
-      {/* FEATURED PRODUCTS */}
-      <section className="products">
-        <h2>Featured Products</h2>
-        <div className="product-grid">
-          <div className="product-card">
-            <img src="https://via.placeholder.com/250" alt="product" />
-            <h3>Stylish Jacket</h3>
-            <p>$79.99</p>
-            <button>Add to Cart</button>
-          </div>
-
-          <div className="product-card">
-            <img src="https://via.placeholder.com/250" alt="product" />
-            <h3>Smart Watch</h3>
-            <p>$129.99</p>
-            <button>Add to Cart</button>
-          </div>
-
-          <div className="product-card">
-            <img src="https://via.placeholder.com/250" alt="product" />
-            <h3>Headphones</h3>
-            <p>$59.99</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="cta">
-        <h2>Get 20% Off on Your First Order 🎉</h2>
-        <button className="secondary-btn">Sign Up Now</button>
-      </section>
-
+      <footer className="footer">
+        <p>© 2026 My Website. All rights reserved.</p>
+      </footer>
     </div>
   );
-};
+}
 
-export default Home;
+export default HomePage;

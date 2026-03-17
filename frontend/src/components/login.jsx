@@ -86,17 +86,20 @@ const Login = () => {
       } else {
         Error("failed to login");
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error.message);
     }
+   setEmail("");
+   setPassword("");
   };
   return (
-    <div className="header">
+    <div className="login">
       <form onSubmit={handleLogin}>
         <input
           type="email"
           value={email}
-          placeholder="enter your email"
+          placeholder="e.g:puriprajun@gmail.com"
           required
           onChange={e => {
             setEmail(e.target.value);

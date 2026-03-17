@@ -1,10 +1,11 @@
 import express from "express" //esmodel ma gareko   common js chutei tarika bata import hunccha
-             //  "type": "module", we make is esmodele suru ma common .js hunccha
+ //  "type": "module", we make is esmodele suru ma common .js hunccha
 import { productRouter } from "./routes/product.route.js"
 import { orderRouter } from "./routes/order.route.js"
 import { userRoute } from "./routes/user.route.js"
 import { fileRouter } from "./routes/file.route.js"
 import { connectDB } from "./config/connectMongo.js"
+import { validateContactRequest } from "./controller/message.controller.js"
 import cors from "cors"
 
 
@@ -22,6 +23,7 @@ app.use("/product", productRouter)
 app.use("/order", orderRouter)
 app.use("/user",userRoute)
 app.use("/file",fileRouter)
+app.use("/contact",validateContactRequest)
 
 app.get("/", (req,res)=>{
     res.send("Hello world i am prajun") //local only run in one lAN wifi connected computer example: localhost:8080  and 

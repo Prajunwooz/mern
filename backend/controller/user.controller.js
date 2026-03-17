@@ -23,12 +23,101 @@ export const userController=async(req,res)=>{
         sendMail({
             email:result.email,
         subject:"thanks for registration i am prajun",// we add /verify route to verify user
-        html:`<h1> hello ${result.username},</h1>
-        </br>
-        <p> thanks for registering with us </p>
-        <a href=http://localhost:8080/user/verify?token=${token}> 
-        <button> verify your email</button>
-        </a>`
+        // html:`<h1> hello ${result.username},</h1>
+        // </br>
+        // <p> thanks for registering with us </p>
+        // <a href=http://localhost:8080/user/verify?token=${token}> 
+        // <button> verify your email</button>
+        // </a>`
+        html: `
+<div style="
+  margin:0;
+  padding:0;
+  background-color:#f4f6f8;
+  font-family: Arial, Helvetica, sans-serif;
+">
+  <table align="center" width="100%" cellpadding="0" cellspacing="0" style="padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table width="500" cellpadding="0" cellspacing="0" style="
+          background:#ffffff;
+          border-radius:10px;
+          padding:40px;
+          box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        ">
+          
+          <tr>
+            <td align="center" style="padding-bottom:20px;">
+              <h1 style="
+                margin:0;
+                font-size:24px;
+                color:#333333;
+              ">
+                Welcome, ${result.username}! 🎉
+              </h1>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding-bottom:30px;">
+              <p style="
+                font-size:16px;
+                color:#555555;
+                line-height:1.6;
+                margin:0;
+              ">
+                Thanks for registering with us.  
+                Please confirm your email address to activate your account.
+              </p>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding-bottom:30px;">
+              <a href="http://localhost:8080/user/verify?token=${token}"
+                 style="
+                  display:inline-block;
+                  padding:14px 28px;
+                  font-size:16px;
+                  font-weight:bold;
+                  color:#ffffff;
+                  text-decoration:none;
+                  border-radius:6px;
+                  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+                 ">
+                Verify Email
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center">
+              <p style="
+                font-size:13px;
+                color:#999999;
+                margin:0;
+                line-height:1.5;
+              ">
+                If you didn’t create an account, you can safely ignore this email.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+        <p style="
+          font-size:12px;
+          color:#aaaaaa;
+          margin-top:20px;
+        ">
+          © ${new Date().getFullYear()} Your Company. All rights reserved.
+        </p>
+
+      </td>
+    </tr>
+  </table>
+</div>
+`
     })
 
     //sendMail(result.email)
@@ -147,13 +236,96 @@ export const  forgetpasswordController=async(req,res)=>{
             // <NavLink to = {"/user/resetpassword"}> ResetPassword</NavLink> we dont put token in frontend route
             email:isvalidemail.email,
             subject:"forget password", 
-            html:`<h1> hello ,</h1>
-            </br>
-            <p> click on the below link to reset your password </p> 
-            <a href=http://localhost:5173/user/resetpassword?token=${token}> 
-        
-            <button> reset your password</button>
-            </a>`
+           html: `
+<div style="
+  margin:0;
+  padding:0;
+  background-color:#f4f6f8;
+  font-family: Arial, Helvetica, sans-serif;
+">
+  <table align="center" width="100%" cellpadding="0" cellspacing="0" style="padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table width="500" cellpadding="0" cellspacing="0" style="
+          background:#ffffff;
+          border-radius:10px;
+          padding:40px;
+          box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        ">
+
+          <tr>
+            <td align="center" style="padding-bottom:20px;">
+              <h1 style="
+                margin:0;
+                font-size:22px;
+                color:#333333;
+              ">
+                Reset Your Password 🔐
+              </h1>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding-bottom:30px;">
+              <p style="
+                font-size:16px;
+                color:#555555;
+                line-height:1.6;
+                margin:0;
+              ">
+                We received a request to reset your password.  
+                Click the button below to set a new password.
+              </p>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding-bottom:30px;">
+              <a href="http://localhost:5173/user/resetpassword?token=${token}"
+                 style="
+                  display:inline-block;
+                  padding:14px 28px;
+                  font-size:16px;
+                  font-weight:bold;
+                  color:#ffffff;
+                  text-decoration:none;
+                  border-radius:6px;
+                  background-color:#ef4444;
+                 ">
+                Reset Password
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center">
+              <p style="
+                font-size:13px;
+                color:#999999;
+                margin:0;
+                line-height:1.5;
+              ">
+                If you didn’t request a password reset, you can safely ignore this email.  
+                This link will expire for security reasons.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+        <p style="
+          font-size:12px;
+          color:#aaaaaa;
+          margin-top:20px;
+        ">
+          © ${new Date().getFullYear()} Your Company. All rights reserved.
+        </p>
+
+      </td>
+    </tr>
+  </table>
+</div>
+`
         })
             res.status(200).json({
                 message:"mail sent sucessfully", 
