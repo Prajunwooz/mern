@@ -21,7 +21,7 @@ const fileFilter = (req,file,  callback) => {
    
     let originalname = file.originalname; //SHOWS NAME OF FILE
     let fileExtension= path.extname(originalname); //GETS EXTENSION OF FILE path must be installed
-       let validFileExtensions = ['.png', '.jpg', '.jpeg', '.gif'];
+       let validFileExtensions = ['.png', '.jpg', '.jpeg', '.gif','.webp']; // Define valid file extensions
     let isValid = validFileExtensions.includes(fileExtension.toLowerCase());
     if (isValid) {
         callback(null, true); // Accept the file

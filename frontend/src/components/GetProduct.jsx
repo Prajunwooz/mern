@@ -74,7 +74,7 @@ console.log(baseUrl)
                 <p>In Stock: {value.quantity} pcs. </p>
                 <p className="product-details">{value.productDetails}</p>
                 <div className="price-action-row">
-                  <p className="product-price">Rs. {value.price}</p>
+                  <p>Rs. {value.price}</p>
                   <button
                     className="delete-button"
                     onClick={() => handleDelete(value._id)}

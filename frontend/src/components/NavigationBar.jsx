@@ -8,7 +8,6 @@ const NavigationBar = () => {
   const Navigate=useNavigate();
 
   const HandleResponse=()=>{
-    
     localStorage.removeItem("token");
     SetLogOUt(true);
     alert("you have been logout")

@@ -16,7 +16,8 @@ export const userController=async(req,res)=>{
         const token=await generateToken({
             payload:{            
             email:result.email,
-            id:result._id
+            id:result._id,
+            role:result.role
         },
         expiresIn:"1h"}) //1h means 1 hour expire time
         console.log(token)
@@ -153,7 +154,7 @@ export const verifyuserController=async(req,res)=>{  //this is send in email but
         console.log(verify)
         res.status(200).json({
             message:"user verified"
-        })
+        })  
     }
     catch(error){
         res.status(400).json({
@@ -185,7 +186,8 @@ export const verifyuserController=async(req,res)=>{  //this is send in email but
      const token=await generateToken({//we generate token how long user id login in 1st login
         payload:{                    
         email:email.email,
-        id:email._id
+        id:email._id,
+        role:email.role
         },
         expiresIn:"1h"
     })
@@ -370,7 +372,7 @@ export const updateUserController=async(req,res)=>{
     try{
         const data = req.body
         delete data.password; // which delete password if user wamt to update other detail except password
-        const id =  req.id//req.params.id
+        const id =  req.id//req.params.id //id comes from isauthenciated
 console.log(id)
         const result =await Usermodel.findByIdAndUpdate(id , data, {new:true})
         res.status(200).json({

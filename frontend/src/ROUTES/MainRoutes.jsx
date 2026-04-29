@@ -61,6 +61,7 @@ const MainRoutes = () => {
             <Route path="ProductCreate" element={<ProductCreate />}></Route>
             <Route path="UpdateProduct/:id" element={<UpdateProduct/>}></Route>  
             <Route path="GetProduct" element={<GetProduct />}></Route>
+            <Route path="Store" element={<Store  />}></Route>
           </Route>
 
         

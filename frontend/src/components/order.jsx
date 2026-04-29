@@ -28,7 +28,7 @@ console.log(id, numericPrice);
   });
 
   const createOrder = async e => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       const orderData = await axios.post(`${baseUrl}/order/create/${id}`, {
         productId: id,

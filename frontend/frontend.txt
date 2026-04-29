@@ -1,9 +1,4 @@
- http://localhost:5173/
- day 1, 
- / git clone link ,garera local ma code lina sakincha git profile bata lyayera ani tespachi npm install garera sabai package haru install garni ani npm run dev garera local ma run garni
-//npm create vite@latest to create frontend
-// ctrl + space to see suggestions and imports
-// every code  run in app.jsx in react and mail.jsx ma home component run huncha
+day 1, 
 command to set up the frontend project:
   -> npm create vite@latest 
   -> project name = frontend
@@ -27,7 +22,41 @@ command to set up the frontend project:
 
 
 return 
-components always write in capitial letter pieces of code aalways starts with capipital
-search npm js
- npm i react-router-dom to install react package
- // import BrowserRouter in main.jsx to enable routing in cover it to app
+
+day2, 
+Components:
+first letter of the file name always should be in capital
+e.g. Home.jsx
+
+
+
+
+storage in frontend
+
+1. localStorage = store the data permanently and we can access this data in different browser tab.
+
+2. sessionStorage = stores the data temporalely, where we can access this data only in one tab, if we switch to the another tab of the browser, we  cannot access this data.
+
+
+nested routing 
+
+
+
+
+react Hooks :
+
+
+
+ 1. useState();
+ 2. useEffect(()=>{
+
+  }, [])
+
+
+
+200  => success....
+201 => created ....
+400 => bad reqest...
+401 => unauthorized....
+403 => Forbidden...
+404 => not found 
