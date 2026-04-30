@@ -2782,3 +2782,41 @@ body {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
+.navbar .profile-pic {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+
+  /* removes unwanted border */
+  border: none;
+  outline: none;
+  word-spacing: normal;
+
+  /* make it look better */
+  border-radius: 50%;          /* circle shape */
+  padding: 4px;                /* space inside */
+  background: white;           /* clean background */
+
+  /* subtle shadow */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+  /* smooth hover animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logout-btn {
+  background: linear-gradient(135deg, #ff6b6b, #f06595);
+  color: rgb(17, 118, 133);
+  font-weight: 600;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4a5568;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}

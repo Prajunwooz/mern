@@ -7,16 +7,17 @@ import { fileRouter } from "./routes/file.route.js"
 import { connectDB } from "./config/connectMongo.js"
 import { validateContactRequest } from "./controller/message.controller.js"
 import cors from "cors"
-
+import { PORT } from "./config/env.js"
+import { BASE_URL } from "./config/env.js"
 
 const app = express()
 app.use(express.json())
 app.use(express.static("./public"));  //public vitra k k cha sav lai browse ma herna milni banaunu just locallhost:8080/copy.jpg lekhera
-app.use(cors("http://localhost:5173")) //frontend ko url halne
+app.use(cors(BASE_URL)) //frontend ko url halne
 //cors error bhaneko backend ra frontend connet chainna 
 connectDB()
-app.listen(8080, () => {
-    console.log(`Server is running on port 8080`)
+app.listen(PORT, () => {
+console.log(`Server is running on PORT ${PORT}`)
 })
 
 app.use("/product", productRouter)

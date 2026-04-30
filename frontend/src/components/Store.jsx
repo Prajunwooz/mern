@@ -51,8 +51,7 @@ const  Store = () => {
               <div className="product-content">
                 <h3 className="product-name">{value.productName}</h3>
                 <p className="product-details">{value.productDetails}</p>
-                <div className="price-action-row">
-                  <p className="product-price">Rs. {value.price}</p>
+                  <p className="product-details">Rs. {value.price}</p> 
                   <button
                     className="buy-button"
                     onClick={() => handleClick(value._id, value.price)}
@@ -61,7 +60,7 @@ const  Store = () => {
                   </button>
                 </div>
               </div>
-            </div>
+           
           ))}
         </div>
       )}

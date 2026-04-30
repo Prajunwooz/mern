@@ -18,3 +18,7 @@ export const SECRET_KEY=process.env.SECRET_KEY
 export const SMTP_EMAIL=process.env.SMTP_EMAIL
 export const SMTP_PASSWORD=process.env.SMTP_PASSWORD
    console.log(SMTP_EMAIL,SMTP_PASSWORD)
+   export const PORT=process.env.PORT 
+   console.log(PORT)
+   export const BASE_URL=process.env.BASE_URL 
+   console.log(BASE_URL)
