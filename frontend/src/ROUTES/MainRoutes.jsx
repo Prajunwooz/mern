@@ -20,7 +20,7 @@ import GetProduct from '../components/GetProduct';
 import UpdateProduct from '../components/updateProduct';
 import Store from '../components/store';
 import Home from '../components/Home';
-import About from '../components/ABOUT';
+import About from '../components/About';
 import Order from '../components/order';
 const MainRoutes = () => {
   const Navigate=useNavigate()
