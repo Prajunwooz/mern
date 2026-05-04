@@ -19,7 +19,7 @@ import ProductCreate from '../components/ProductCreate';
 import GetProduct from '../components/GetProduct';
 import UpdateProduct from '../components/updateProduct';
 import Store from '../components/store';
-import Home from '../components/Home';
+import Home from '../components/home.jsx';
 import About from '../components/About';
 import Order from '../components/order';
 const MainRoutes = () => {
