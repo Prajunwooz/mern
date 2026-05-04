@@ -3,8 +3,8 @@ import{ Routes,  Route, Outlet, useNavigate } from 'react-router-dom'
 import NavigationBar from '../components/NavigationBar';
 import Contact from '../components/contact';
 
-import UseState from '../components/UseState';
-import UseStateImage from '../components/UseStateImage';
+import UseState from '../components/useState';
+import UseStateImage from '../components/UseStateseStateImage';
 import UseStatePw from '../components/UseStatePw';
 import UseEffect from '../components/UseEffect';
 import DynamicRoute from '../components/DynamicRoute';
@@ -19,8 +19,8 @@ import ProductCreate from '../components/ProductCreate';
 import GetProduct from '../components/GetProduct';
 import UpdateProduct from '../components/updateProduct';
 import Store from '../components/store';
-import Home from '../components/home.jsx';
-import About from '../components/About';
+import Home from '../components/home';
+import About from '../components/about';
 import Order from '../components/order';
 const MainRoutes = () => {
   const Navigate=useNavigate()
