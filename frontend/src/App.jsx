@@ -1,6 +1,6 @@
 import React from 'react'
-import Home from './components/home'
-import ABOUT from './components/ABOUT'
+// import Home from './components/home'
+// import ABOUT from './components/ABOUT'
 import MainRoutes from './ROUTES/MainRoutes'
 
 const App = () => {
