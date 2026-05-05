@@ -1,8 +1,7 @@
 import React from 'react';
 import{ Routes,  Route, Outlet, useNavigate } from 'react-router-dom'
 import NavigationBar from '../components/NavigationBar';
-import Contact from '../components/contact';
-
+import Contact from '../components/Contact';
 import UseState from '../components/UseState';
 import UseStateImage from '../components/UseStateImage';
 import UseStatePw from '../components/UseStatePw';
