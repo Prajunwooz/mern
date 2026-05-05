@@ -7,10 +7,10 @@
   "type": "module",
   "main": "index.js",
  "scripts": {
-  "start": "node index.js",
-  "dev": "nodemon index.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+ "scripts": {
+  "start": "node backend/index.js",
+  "dev": "nodemon backend/index.js"
+}
   "dependencies": {
     "accepts": "^2.0.0",
     "bcryptjs": "^3.0.3",
