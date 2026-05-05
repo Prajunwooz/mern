@@ -3,8 +3,8 @@ import{ Routes,  Route, Outlet, useNavigate } from 'react-router-dom'
 import NavigationBar from '../components/NavigationBar';
 import Contact from '../components/contact';
 
-import UseState from '../components/useState';
-import UseStateImage from '../components/UseStateseStateImage';
+import UseState from '../components/UseState';
+import UseStateImage from '../components/UseStateImage';
 import UseStatePw from '../components/UseStatePw';
 import UseEffect from '../components/UseEffect';
 import DynamicRoute from '../components/DynamicRoute';
