@@ -17,10 +17,10 @@ import ForgotPassword from '../components/ForgetPassword';
 import UpdateProfile from '../components/UpdateProfile';
 import ProductCreate from '../components/ProductCreate';
 import GetProduct from '../components/GetProduct';
-import UpdateProduct from '../components/updateProduct';
-import Store from '../components/store';
-import Home from '../components/home';
-import About from '../components/about';
+import UpdateProduct from '../components/UpdateProduct';
+import Store from '../components/Store';
+import Home from '../components/Home';
+import About from '../components/About';
 import Order from '../components/order';
 const MainRoutes = () => {
   const Navigate=useNavigate()
