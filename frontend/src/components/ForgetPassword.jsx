@@ -35,6 +35,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../App.css";
+import baseUrl from "../config/env";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -42,7 +43,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/user/forgotpassword",
+        `${baseUrl}/user/forgotpassword`,
         {
           email: email,
         },

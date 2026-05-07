@@ -68,7 +68,7 @@ const UpdateProfile = () => {
 
     try {
       const response = await axios.patch(
-        "http://localhost:8080/user/update",
+        "{baseUrl}/user/update ",
         {
           email: email,
           username: userName,

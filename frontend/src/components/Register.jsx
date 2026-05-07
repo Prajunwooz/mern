@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import baseUrl from '../config/env';
 const Register = () => {
     const [Username, SetUsername] = useState(''); //username ko value kei chainna('') ani form fill garda value aune setusername ma bascha
     const [Email, SetEmail] = useState('');
@@ -12,7 +13,7 @@ const Register = () => {
         e.preventDefault(); //it stops refreshing of page on submit
         try {
     const Response = await axios({ //install and import axios first
-        url:"http://localhost:8080/user/create",
+        url:`${baseUrl}/user/create`,
         method:"POST",
         data:{
             username: Username,

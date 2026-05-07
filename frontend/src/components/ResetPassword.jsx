@@ -49,6 +49,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "../App.css";
+import baseUrl from "../config/env";
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
 
@@ -61,7 +62,7 @@ const ResetPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.patch(`http://localhost:8080/user/resetpassword?token=${token}` ,
+      const response = await axios.patch(`${baseUrl}/user/resetpassword?token=${token}` ,
         {
           password: password,
         },
