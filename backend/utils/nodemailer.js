@@ -13,6 +13,7 @@ let transportor =nodemailer.createTransport({ //.createTransport is method of no
     },
 
     });
+    console.log(SMTP_PASSWORD,SMTP_EMAIL)
     
     // export const sendMail=async()=>{ //.sendMail is method of transportor used to send mail
         
