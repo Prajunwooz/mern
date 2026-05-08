@@ -120,6 +120,16 @@ export const userController=async(req,res)=>{
 </div>
 `
     })
+      console.log("1. User created");
+
+        // 2. Send email
+        await sendMail({
+            email: user.email,
+            subject: "Verify your email",
+            html: "<h1>Welcome</h1>"
+        });
+
+        console.log("2. Email sent");
 
     //sendMail(result.email)
     //call the sendmail function after user created
