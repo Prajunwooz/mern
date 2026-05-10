@@ -1,0 +1,62 @@
+day 1, 
+command to set up the frontend project:
+  -> npm create vite@latest 
+  -> project name = frontend
+  -> framework choose = react 
+  -> varient = javascript 
+  done. 
+    cd frontend
+    npm install
+    npm run dev
+
+
+
+    index.css = clear 
+    App.css = clear 
+    App.jsx = clear 
+      rafce   r= react
+              a = Arrow 
+              f= function 
+              c= componential 
+              e = export 
+
+
+return 
+
+day2, 
+Components:
+first letter of the file name always should be in capital
+e.g. Home.jsx
+
+
+
+
+storage in frontend
+
+1. localStorage = store the data permanently and we can access this data in different browser tab.
+
+2. sessionStorage = stores the data temporalely, where we can access this data only in one tab, if we switch to the another tab of the browser, we  cannot access this data.
+
+
+nested routing 
+
+
+
+
+react Hooks :
+
+
+
+ 1. useState();
+ 2. useEffect(()=>{
+
+  }, [])
+
+
+
+200  => success....
+201 => created ....
+400 => bad reqest...
+401 => unauthorized....
+403 => Forbidden...
+404 => not found 
