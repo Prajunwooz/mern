@@ -123,6 +123,9 @@ const transporter = nodemailer.createTransport({
         user: SMTP_EMAIL,
         pass: SMTP_PASSWORD,
     },
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
 });
 
 transporter.verify((error, success) => {
