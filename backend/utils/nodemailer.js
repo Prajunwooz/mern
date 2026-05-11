@@ -113,13 +113,12 @@
 import nodemailer from "nodemailer";
 import { SMTP_EMAIL, SMTP_PASSWORD } from "../config/env.js";
 
-console.log("EMAIL:", SMTP_EMAIL);
-console.log("PASS:", SMTP_PASSWORD);
+
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
+    port: 465,
+    secure: true,
     auth: {
         user: SMTP_EMAIL,
         pass: SMTP_PASSWORD,
