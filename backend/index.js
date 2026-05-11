@@ -13,7 +13,10 @@ import { BASE_URL } from "./config/env.js"
 const app = express()
 app.use(express.json())
 app.use(express.static("./public"));  //public vitra k k cha sav lai browse ma herna milni banaunu just locallhost:8080/copy.jpg lekhera
-app.use(cors(BASE_URL)) //frontend ko url halne
+app.use(cors({
+  origin: BASE_URL,
+  credentials: true
+}))//frontend ko url halne
 //cors error bhaneko backend ra frontend connet chainna 
 connectDB()
 app.listen(PORT, () => {
