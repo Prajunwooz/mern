@@ -123,9 +123,6 @@ const transporter = nodemailer.createTransport({
         user: SMTP_EMAIL,
         pass: SMTP_PASSWORD,
     },
-    tls: {
-        rejectUnauthorized: false
-    }
 });
 
 transporter.verify((error, success) => {
