@@ -110,34 +110,58 @@
 // };
 // console.log("sendMail function is ready to send emails");
 
-import nodemailer from "nodemailer";
-import { SMTP_EMAIL, SMTP_PASSWORD } from "../config/env.js";
+// import nodemailer from "nodemailer";
+// import { SMTP_EMAIL, SMTP_PASSWORD } from "../config/env.js";
 
 
 
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-        user: SMTP_EMAIL,
-        pass: SMTP_PASSWORD,
-    },
-});
+// const transporter = nodemailer.createTransport({
+//     host: "smtp.gmail.com",
+//     port: 465,
+//     secure: true,
+//     auth: {
+//         user: SMTP_EMAIL,
+//         pass: SMTP_PASSWORD,
+//     },
+// });
 
-transporter.verify((error, success) => {
-    if (error) {
-        console.log("VERIFY ERROR:", error);
-    } else {
-        console.log("Server is ready");
-    }
-});
+// transporter.verify((error, success) => {
+//     if (error) {
+//         console.log("VERIFY ERROR:", error);
+//     } else {
+//         console.log("Server is ready");
+//     }
+// });
+
+// export const sendMail = async ({ email, subject, html }) => {
+//     try {
+//         console.log("Sending mail to:", email);
+
+//         const result = await transporter.sendMail({
+//             from: `Prajun Puri <${SMTP_EMAIL}>`,
+//             to: email,
+//             subject,
+//             html,
+//         });
+
+//         console.log("Mail sent successfully");
+//         console.log(result);
+
+//     } catch (error) {
+//         console.log("MAIL ERROR:");
+//         console.log(error);
+//     }
+// };
+import { Resend } from "resend";
+import { RESEND_API_KEY, SMTP_EMAIL } from "../config/env.js";
+
+const resend = new Resend(RESEND_API_KEY);
 
 export const sendMail = async ({ email, subject, html }) => {
     try {
         console.log("Sending mail to:", email);
 
-        const result = await transporter.sendMail({
+        const result = await resend.emails.send({
             from: `Prajun Puri <${SMTP_EMAIL}>`,
             to: email,
             subject,

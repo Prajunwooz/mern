@@ -16,8 +16,8 @@ export const MONGODB_URL=process.env.MONGODB_URL  //we use env package to we sho
 export const SECRET_KEY=process.env.SECRET_KEY 
    console.log(SECRET_KEY )
 export const SMTP_EMAIL=process.env.SMTP_EMAIL
-export const SMTP_PASSWORD=process.env.SMTP_PASSWORD
-   console.log(SMTP_EMAIL,SMTP_PASSWORD)
+export const RESEND_API_KEY=process.env.RESEND_API_KEY
+   console.log(SMTP_EMAIL,RESEND_API_KEY)
    export const PORT=process.env.PORT 
    console.log(PORT)
    export const BASE_URL=process.env.BASE_URL 
