@@ -164,8 +164,8 @@ export const sendMail = async ({ email, subject, html }) => {
         const result = await resend.emails.send({
             from: `Prajun Puri <${SMTP_EMAIL}>`,
             to: [email],
-            subject,
-            html,
+            subject:subject,
+            html:html,
         });
 
         console.log("Mail sent successfully");
